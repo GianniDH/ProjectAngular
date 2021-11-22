@@ -1,0 +1,25 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+  {{errorMessage}}
+</div>
+<form (ngSubmit)="onSubmit()" #listForm="ngForm">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Title" [(ngModel)]="list.title"
+           #name="ngModel" required>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Title is required</div>
+
+    <label for="category">Category</label>
+    <select type="text" class="form-control {{list.category}}" id="category" name="category" placeholder="Category" [(ngModel)]="list.category"
+           #name="ngModel" required>
+           <option class="red" value="red">Red</option>
+           <option class="green" value="green">Green</option>
+           <option class="blue" value="blue">Blue</option>
+           <option class="yellow" value="yellow">Yellow</option>
+    </select>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Category is required</div>
+
+  </div>
+  <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!listForm.form.valid || isSubmitted">Add</button>
+  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!listForm.form.valid || isSubmitted">Save</button>
+  <button class="ml-2 btn btn-secondary" (click)="back()">Back</button>
+</form>

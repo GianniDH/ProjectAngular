@@ -1,0 +1,14 @@
+<article class="container {{list.category}}" *ngIf="list">
+    <div class="row">
+        <div class="col-md-6">
+            <button title="Edit {{list.title}}" type="button" class="btn btn-success mr-1" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
+            <button title="Delete {{list.title}}" type="button" class="btn btn-danger" (click)="delete(list.id)"><i class="far fa-trash-alt"></i></button>
+            <h1><strong>{{list.title}}</strong></h1>
+            
+            <div  class="col-sm-12 col-md-12, col-lg-6, col-lg-4 d-flex align-items-center" *ngFor="let item of (items$ | async)">
+                
+                <app-item *ngIf='list.id == item.listId' [item]="item"></app-item>
+            </div>
+        </div>
+    </div>
+</article>

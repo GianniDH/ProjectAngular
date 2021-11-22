@@ -1,0 +1,39 @@
+td, th {
+    vertical-align: middle;
+  }
+  
+  button {
+    margin: 2px;
+  }
+  
+  .addBtn {
+    margin-bottom: 2rem;
+  }
+
+  div.green {
+    width: 50px;
+    padding: 5px;
+    color: white;
+    background-color: green;
+  }
+  
+  div.red {
+    width: 50px;
+    padding: 5px;
+    color: white;
+    background-color: darken(red, 15);
+  }
+  
+  div.blue {
+    width: 50px;
+    padding: 5px;
+    color: white;
+    background-color: darken(blue, 15);
+  }
+
+  div.yellow {
+    width: 50px;
+    padding: 5px;
+    color: black;
+    background-color: darken(yellow, 10);
+  }

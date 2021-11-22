@@ -1,0 +1,36 @@
+article {
+    border: 2px solid lightgrey;
+    box-shadow: 2px 2px 2px lightgrey;
+    padding: 10px;
+    min-width:250px;
+    max-width:600px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .green {
+
+    color: white;
+    background-color: green;
+  }
+  
+  .red {
+
+    color: white;
+    background-color: darken(red, 15);
+  }
+  
+  .blue {
+
+    color: white;
+    background-color: darken(blue, 15);
+  }
+
+  .yellow {
+
+    color: black;
+    background-color: darken(yellow, 10);
+  }
+

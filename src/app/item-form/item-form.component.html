@@ -1,0 +1,34 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+  {{errorMessage}}
+</div>
+<form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="Description" [(ngModel)]="item.description"
+           #name="ngModel" required>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Description is required</div>
+
+    <label for="date">Date</label>
+    <input type="date" class="form-control" id="date" name="date" placeholder="Date" [(ngModel)]="item.date"
+           #name="ngModel" required>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Description is required</div>
+
+    <label for="listId">List</label>
+    <select type="listId" class="form-control" id="listId" name="listId" [(ngModel)]="item.listId"
+           #name="ngModel" required>
+           <option value="" disabled>Choose the list you would like to add this item to.</option>
+           <option *ngFor="let list of lists" [ngValue]="list.id">{{list.title}}</option>
+
+       </select>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">List is required</div>
+
+    <label for="status">Is done?</label>
+    <input type="checkbox" class="form-control move-left" id="status" name="status" placeholder="Status" [(ngModel)]="item.status"
+           #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Status is required</div>
+
+  </div>
+  <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!itemForm.form.valid || isSubmitted">Add</button>
+  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!itemForm.form.valid || isSubmitted">Save</button>
+  <button class="ml-2 btn btn-secondary" (click)="back()">Back</button>
+</form>

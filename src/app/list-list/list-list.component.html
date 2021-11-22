@@ -1,0 +1,32 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+<button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new list</button>
+<table class="table" *ngIf="lists && lists.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of lists">
+            <th scope="row">{{list.title}}</th>
+            <th scope="row"> 
+                <div [ngSwitch]="color">
+                    <div *ngSwitchCase="'green'" class="{{list.category}}">{{list.category}}</div>
+                    <div *ngSwitchCase="'red'" class="{{list.category}}">{{list.category}}</div>
+                    <div *ngSwitchCase="'blue'" class="{{list.category}}">{{list.category}}</div>
+                    <div *ngSwitchCase="'yellow'" class="{{list.category}}">{{list.category}}</div>
+                    <div *ngSwitchDefault class="{{list.category}}">{{list.category}}</div>
+                  </div>
+            </th>
+              
+            <td>
+                <button type="button" class="btn btn-success" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger" (click)="delete(list.id)"><i class="far fa-trash-alt"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
