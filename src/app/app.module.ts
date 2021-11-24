@@ -13,6 +13,9 @@ import { ItemComponent } from './item/item.component';
 import { ListListComponent } from './list-list/list-list.component';
 import { ListFormComponent } from './list-form/list-form.component';
 import { ListComponent } from './list/list.component';
+import {MatSortModule} from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -24,14 +27,16 @@ import { ListComponent } from './list/list.component';
     ItemComponent,
     ListListComponent,
     ListFormComponent,
-    ListComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSortModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,8 +3,10 @@
         <table class="table border border-dark p-1 rounded">
             <tbody>
                 <tr>
-                    <td><strong (click)="sortDescription()">{{item.description}}</strong></td>
-                    <td>[{{item.date}}]</td>
+                    <td><strong>{{item.description}}</strong></td>
+                    <td *ngIf="compare()" >{{item.date | date: 'dd/MM/yyyy'}}</td><td *ngIf="!compare()" class="overdue">{{item.date | date: 'dd/MM/yyyy'}}
+                    </td>
+                    
                     <td title="Is done?"> 
                         <input #saveIsDone type="checkbox"id="saveIsDone" 
                         [checked]="item.status" (change)="onIsDone(saveIsDone.checked)" > 

@@ -7,10 +7,12 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ItemComponent } from './item/item.component';
 import { ListFormComponent } from './list-form/list-form.component';
 import { ListListComponent } from './list-list/list-list.component';
+import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'item', component: ItemComponent },
+  { path: 'list', component: ListComponent },
   { path: 'admin/item', component: ItemListComponent },
   { path: 'admin/item/form', component: ItemFormComponent },
   { path: 'admin/list', component: ListListComponent },

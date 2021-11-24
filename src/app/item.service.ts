@@ -14,6 +14,10 @@ export class ItemService {
         return this.httpClient.get<Item[]>("http://localhost:3000/items?_expand=list&_sort=date&_order=asc");
     }
 
+    getItemsDescription(): Observable<Item[]> {
+        return this.httpClient.get<Item[]>("http://localhost:3000/items?_expand=list&_sort=description&_order=asc");
+    }
+
     getItemById(id: number): Observable<Item> {
         return this.httpClient.get<Item>("http://localhost:3000/items/" + id);
     }

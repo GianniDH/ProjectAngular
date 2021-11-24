@@ -5,6 +5,7 @@ import { ListService } from '../list.service';
 import { Observable, Subscription } from 'rxjs';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -17,6 +18,7 @@ export class ListComponent implements OnInit {
 
   constructor(private listService: ListService, private itemService: ItemService, private router: Router) { 
     this.list$ = this.listService.getListById(this.listId).subscribe(result => this.list = result);
+
 
   }
   listId: number = 0;
@@ -35,7 +37,6 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.getLists();
     this.items$ = this.itemService.getItems();
-
 
     this.lists$ = this.listService.getLists().subscribe(result => {
       this.lists = result;
@@ -72,4 +73,6 @@ export class ListComponent implements OnInit {
   getLists() {
     this.lists$ = this.listService.getLists().subscribe(result => this.lists = result);
   }
+
+  
 }

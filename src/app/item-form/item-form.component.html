@@ -11,7 +11,7 @@
     <label for="date">Date</label>
     <input type="date" class="form-control" id="date" name="date" placeholder="Date" [(ngModel)]="item.date"
            #name="ngModel" required>
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Description is required</div>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Date is required</div>
 
     <label for="listId">List</label>
     <select type="listId" class="form-control" id="listId" name="listId" [(ngModel)]="item.listId"

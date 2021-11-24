@@ -5,18 +5,26 @@ import { ItemService } from '../item.service';
 import { Subscription } from 'rxjs';
 import { ListService } from '../list.service';
 import { List } from '../list';
+import { Sort } from '../util/sort';
+import { SortDirective } from '../directive/sort.directive';
+import { DatePipe, formatDate } from '@angular/common';
+
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  styleUrls: ['./item.component.scss'],
+  viewProviders: [SortDirective, Sort, DatePipe]
+
 })
 
 
 export class ItemComponent implements OnInit {
   @Input() item: Item = {id: 0, listId: 0, description: "", date: new Date(), status: true};
 
-  constructor(private itemService: ItemService, private listService: ListService, private router: Router) { 
+  
+  constructor(private itemService: ItemService, private listService: ListService, private router: Router, private datePipe: DatePipe) { 
     this.item$ = this.itemService.getItemById(this.itemId).subscribe(result => this.item = result);
+    
 
   }
   itemId: number = 0;
@@ -24,7 +32,6 @@ export class ItemComponent implements OnInit {
   items: Item[] = [];
   item$: Subscription = new Subscription();
   lists$: Subscription = new Subscription();
-  
 
   items$: Subscription = new Subscription();
   deleteItem$: Subscription = new Subscription();
@@ -84,7 +91,16 @@ export class ItemComponent implements OnInit {
     this.items$ = this.itemService.getItems().subscribe(result => this.items = result);
   }
 
-  sortDescription(){
-    this.items.sort((a, b) => (a.description > b.description ? 1 : -1));
+  compare(){
+    var myDate = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
+    var date = formatDate(this.item.date, 'yyyy-MM-dd', 'en-US');
+
+    if (myDate < date){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
+
 }
