@@ -1,8 +1,9 @@
-.ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
 }
-  
-.ng-invalid:not(form)  {
+
+.ng-invalid:not(form) {
   border-left: 5px solid #a94442; /* red */
 }
 
@@ -10,13 +11,13 @@
   width: auto;
   box-shadow: none;
   margin-left: 10px;
-
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   transform: scale(2);
 }
 
-input, select{
+input,
+select {
   margin-bottom: 15px;
 }

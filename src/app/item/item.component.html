@@ -1,23 +1,49 @@
 <div *ngIf="item">
-    <div *ngIf="!item.status">
-        <table class="table border border-dark p-1 rounded">
-            <tbody>
-                <tr>
-                    <td><strong>{{item.description}}</strong></td>
-                    <td *ngIf="compare()" >{{item.date | date: 'dd/MM/yyyy'}}</td><td *ngIf="!compare()" class="overdue">{{item.date | date: 'dd/MM/yyyy'}}
-                    </td>
-                    
-                    <td title="Is done?"> 
-                        <input #saveIsDone type="checkbox"id="saveIsDone" 
-                        [checked]="item.status" (change)="onIsDone(saveIsDone.checked)" > 
-                    </td>
-                    <td > 
-                        <button title="Edit {{item.description}}" type="button" class="btn-sm btn-success marginRight" (click)="edit(item.id)"><i class="fas fa-edit"></i></button>
-                        <button title="Delete {{item.description}}" type="button" class="btn-sm btn-danger " (click)="delete(item.id)"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-            
-        </table>   
-    </div>
+  <div *ngIf="!item.status">
+    <table class="table border border-dark p-1 rounded">
+      <tbody>
+        <tr>
+          <td>
+            <strong>{{ item.description }}</strong>
+          </td>
+          <td *ngIf="compare() === 'default'">
+            {{ item.date | date: "dd/MM/yyyy" }}
+          </td>
+          <td *ngIf="compare() === 'today'" tooltip="d" class="today">
+            {{ item.date | date: "dd/MM/yyyy" }}
+          </td>
+          <td *ngIf="compare() === 'overdue'" class="overdue">
+            {{ item.date | date: "dd/MM/yyyy" }}
+          </td>
+          <td title="Is done?">
+            <input
+              #saveIsDone
+              type="checkbox"
+              id="saveIsDone"
+              [checked]="item.status"
+              (change)="onIsDone(saveIsDone.checked)"
+            />
+          </td>
+          <td>
+            <button
+              title="Edit {{ item.description }}"
+              type="button"
+              class="btn-sm btn-success marginRight"
+              (click)="edit(item.id)"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            <button
+              title="Delete {{ item.description }}"
+              type="button"
+              class="btn-sm btn-danger"
+              (click)="delete(item.id)"
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

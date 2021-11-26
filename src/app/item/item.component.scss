@@ -1,65 +1,40 @@
 @media only screen and (min-width: 0px) and (max-width: 700px) {
   td {
-      display:inline-block;
-      padding:5px;
-      width:100%;
+    display: inline-block;
+    padding: 5px;
+    width: 100%;
   }
 }
 
-table{
-
+table {
   background-color: white;
-  color:black;
+  color: black;
   margin-bottom: 2px;
-
 }
-td, th {
+td,
+th {
   vertical-align: middle;
-  white-space:nowrap;
-  
+  white-space: nowrap;
 }
 
-.green {
-  width: 150px;
-  padding: 5px;
-  color: white;
-  background-color: green;
-}
-
-.red {
-  width: 150px;
-  padding: 5px;
-  color: white;
-  background-color: darken(red, 10);
-}
-
-.overdue{
+.overdue {
   color: red;
   font-weight: bold;
 }
 
-.blue {
-  width: 150px;
-  padding: 5px;
-  color: white;
-  background-color: blue;
+.today {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-.yellow {
-  width: 150px;
-  padding: 5px;
-  color: black;
-  background-color: darken(yellow, 10);
-}
-
-input[type=checkbox] {
+input[type="checkbox"] {
   transform: scale(1.4);
 }
 
-.border{
-  border-width: 2px !important;
+.border {
+  border-width: 3px !important;
 }
 
-.marginRight{
+.marginRight {
   margin-right: 2px;
 }

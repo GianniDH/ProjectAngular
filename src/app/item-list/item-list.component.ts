@@ -1,29 +1,25 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Item} from '../item';
-import {ItemService} from '../item.service';
-import {Observable, Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Item } from "../item";
+import { ItemService } from "../item.service";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.scss']
+  selector: "app-item-list",
+  templateUrl: "./item-list.component.html",
+  styleUrls: ["./item-list.component.scss"],
 })
 export class ItemListComponent implements OnInit, OnDestroy {
   items: Item[] = [];
   items$: Subscription = new Subscription();
   deleteItem$: Subscription = new Subscription();
 
-  errorMessage: string = '';
+  errorMessage: string = "";
 
-
-  
-
-  constructor(private itemService: ItemService, private router: Router) {
-  }
+  constructor(private itemService: ItemService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getItems();
+    this.getItemsDone();
   }
 
   ngOnDestroy(): void {
@@ -32,26 +28,29 @@ export class ItemListComponent implements OnInit, OnDestroy {
   }
 
   add() {
-    //Navigate to form in add mode
-    this.router.navigate(['admin/item/form'], {state: {mode: 'add'}});
+    this.router.navigate(["admin/item/form"], { state: { mode: "add" } });
   }
 
   edit(id: number) {
-    //Navigate to form in edit mode
-    this.router.navigate(['admin/item/form'], {state: {id: id, mode: 'edit'}});
-  }
-
-  delete(id: number) {
-    this.deleteItem$ = this.itemService.deleteItem(id).subscribe(result => {
-      //all went well
-      this.getItems();
-    }, error => {
-      //error
-      this.errorMessage = error.message;
+    this.router.navigate(["admin/item/form"], {
+      state: { id: id, mode: "edit" },
     });
   }
 
-  getItems() {
-    this.items$ = this.itemService.getItems().subscribe(result => this.items = result);
+  delete(id: number) {
+    this.deleteItem$ = this.itemService.deleteItem(id).subscribe(
+      (result) => {
+        this.getItemsDone();
+      },
+      (error) => {
+        this.errorMessage = error.message;
+      }
+    );
+  }
+
+  getItemsDone() {
+    this.items$ = this.itemService
+      .getItemsDone()
+      .subscribe((result) => (this.items = result));
   }
 }

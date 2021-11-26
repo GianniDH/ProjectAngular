@@ -1,9 +1,17 @@
 <div class="container">
-    <button type="button" class="btn btn-success addBtn mr-2" (click)="addItem()"><i class="fas fa-plus"></i> Add new item</button>
-    <button type="button" class="btn btn-success addBtn" (click)="addList()"><i class="fas fa-plus"></i> Add new list</button>
-    <h2>Date today: {{today}}</h2>
-    <div class="row">
-        <app-list class="col-sm-12 col-md-12, col-lg-6, col-lg-6 d-flex align-items-stretch" *ngFor="let list of (lists$ | async)" [list]="list">
-        </app-list>
-    </div>
+  <button type="button" class="btn btn-success addBtn mr-2" (click)="addItem()">
+    <i class="fas fa-plus"></i> Add new item
+  </button>
+  <button type="button" class="btn btn-success addBtn" (click)="addList()">
+    <i class="fas fa-plus"></i> Add new list
+  </button>
+  <h2>Date today: {{ today }}</h2>
+  <div class="row">
+    <app-list
+      class="col-sm-12 col-md-12, col-lg-6, col-lg-6 d-flex align-items-stretch"
+      *ngFor="let list of lists$ | async"
+      [list]="list"
+    >
+    </app-list>
+  </div>
 </div>
