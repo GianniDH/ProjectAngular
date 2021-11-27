@@ -2,16 +2,17 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Item } from "../item";
 import { Router } from "@angular/router";
 import { ItemService } from "../item.service";
-import { Subscription } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { ListService } from "../list.service";
 import { List } from "../list";
-import { DatePipe, formatDate } from "@angular/common";
+import { formatDate } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
+
 
 @Component({
   selector: "app-item",
   templateUrl: "./item.component.html",
   styleUrls: ["./item.component.scss"],
-  viewProviders: [DatePipe],
 })
 export class ItemComponent implements OnInit {
   @Input() item: Item = {
@@ -26,7 +27,7 @@ export class ItemComponent implements OnInit {
     private itemService: ItemService,
     private listService: ListService,
     private router: Router,
-    private datePipe: DatePipe
+    private httpClient: HttpClient
   ) {
     this.item$ = this.itemService
       .getItemById(this.itemId)
@@ -81,23 +82,25 @@ export class ItemComponent implements OnInit {
     }
   }
 
-  onIsDone(value: boolean) {
-    this.item.status = value;
-
-    this.putItem$ = this.itemService.putItem(this.itemId, this.item).subscribe(
-      (result) => {
-        window.location.reload();
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
-  }
+  
 
   getItems() {
     this.items$ = this.itemService
       .getItems()
       .subscribe((result) => (this.items = result));
+  }
+
+  statusUpdate(id: number, is_complete:boolean) {
+    if(is_complete){
+      this.itemService.updateItemCB(id, false).subscribe(() =>{})
+    }else{
+      this.itemService.updateItemCB(id, true).subscribe(() =>{
+        
+      })
+    }
+
+    this.getItems();
+
   }
 
   compare() {

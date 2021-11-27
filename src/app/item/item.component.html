@@ -21,7 +21,7 @@
               type="checkbox"
               id="saveIsDone"
               [checked]="item.status"
-              (change)="onIsDone(saveIsDone.checked)"
+              (change)="statusUpdate(item.id, item.status)"
             />
           </td>
           <td>
