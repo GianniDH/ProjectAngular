@@ -9,6 +9,7 @@ import { formatDate } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 
 
+
 @Component({
   selector: "app-item",
   templateUrl: "./item.component.html",
@@ -27,7 +28,6 @@ export class ItemComponent implements OnInit {
     private itemService: ItemService,
     private listService: ListService,
     private router: Router,
-    private httpClient: HttpClient
   ) {
     this.item$ = this.itemService
       .getItemById(this.itemId)
@@ -102,6 +102,7 @@ export class ItemComponent implements OnInit {
     this.getItems();
 
   }
+  
 
   compare() {
     var myDate = formatDate(new Date(), "yyyy-MM-dd", "en-US");

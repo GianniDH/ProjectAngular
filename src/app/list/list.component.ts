@@ -78,4 +78,13 @@ export class ListComponent implements OnInit {
       .getLists()
       .subscribe((result) => (this.lists = result));
   }
+
+  key: string = 'date';
+  reverse:boolean = false;
+  sort(key: string){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+  
 }

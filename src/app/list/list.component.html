@@ -1,6 +1,6 @@
 <article class="container {{ list.category }}" *ngIf="list">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <button
         title="Edit {{ list.title }}"
         type="button"
@@ -21,16 +21,28 @@
         <strong>{{ list.title }}</strong>
       </h1>
 
-      <div
+      <table>
+        <thead>
+          <tr>
+            <div>
+              <p (click)="sort('description')" scope="col" class="ml-4">Sort description &nbsp;<i class="fa fa-sort"></i></p>
+              <p (click)="sort('date')" scope="col" class="ml-3">Sort date &nbsp;<i class="fa fa-sort"></i></p>
+            </div>
+          </tr>
+        </thead>
+        <div
         class="
-          col-sm-12 col-md-12, col-lg-6, col-lg-4
+          col-12
           d-flex
           align-items-center
+          overflow-auto
         "
-        *ngFor="let item of items$ | async"
+        *ngFor="let item of items$ | async | orderBy: key: reverse"
       >
         <app-item *ngIf="list.id == item.listId" [item]="item"></app-item>
       </div>
+      </table>
+      
     </div>
   </div>
 </article>

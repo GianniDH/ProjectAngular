@@ -7,13 +7,13 @@
 <table class="table" *ngIf="lists && lists.length > 0">
   <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Category</th>
+      <th (click)="sort('title')" scope="col">Title &nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('category')" scope="col">Category &nbsp;<i class="fa fa-sort"></i></th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let list of lists">
+    <tr *ngFor="let list of lists | orderBy: key: reverse">
       <td scope="row">{{ list.title }}</td>
       <td scope="row">
         <div [ngSwitch]="color">

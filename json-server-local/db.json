@@ -1,109 +1,88 @@
 {
   "lists": [
     {
-      "id": 1,
-      "title": "List 1",
-      "category": "blue"
-    },
-    {
       "id": 2,
-      "title": "List 2",
+      "title": "List B",
       "category": "green"
     },
     {
       "id": 3,
-      "title": "List 3",
+      "title": "List C",
       "category": "yellow"
     },
     {
       "id": 4,
-      "title": "List 4",
+      "title": "List D",
       "category": "red"
+    },
+    {
+      "id": 5,
+      "title": "List F",
+      "category": "yellow"
     }
   ],
   "items": [
     {
-      "id": 1,
-      "listId": 1,
-      "description": "Item 1",
-      "date": "2021-11-26",
-      "status": false
-    },
-    {
-      "id": 2,
-      "listId": 1,
-      "description": "Item 2",
-      "date": "2021-11-17",
-      "status": false
-    },
-    {
-      "id": 3,
-      "listId": 1,
-      "description": "Item 3",
-      "date": "2021-11-28",
-      "status": false
-    },
-    {
       "id": 4,
       "listId": 2,
-      "description": "Item 4",
+      "description": "Deadline Professional Skills",
       "date": "2021-11-21",
       "status": false
     },
     {
       "id": 5,
       "listId": 3,
-      "description": "Item 5",
-      "date": "2021-11-21",
+      "description": "Everest Concert",
+      "date": "2021-12-21",
       "status": false
     },
     {
       "id": 6,
       "listId": 4,
-      "description": "Item 6",
+      "description": "Field trip",
       "date": "2021-11-28",
       "status": false
     },
     {
       "id": 7,
       "listId": 3,
-      "description": "Item 7",
-      "date": "2021-11-27",
+      "description": "Get christmas presents",
+      "date": "2021-11-29",
       "status": false
     },
     {
       "id": 8,
       "listId": 2,
-      "description": "Item 8",
-      "date": "2021-12-12",
+      "description": "Help set up christmas tree",
+      "date": "2021-11-30",
       "status": false
     },
     {
       "id": 9,
       "listId": 2,
-      "description": "Item 9",
+      "description": "Internet provider payment",
       "date": "2021-11-28",
-      "status": false
-    },
-    {
-      "id": 10,
-      "listId": 4,
-      "description": "Item 10",
-      "date": "2021-11-30",
       "status": false
     },
     {
       "id": 11,
       "listId": 3,
-      "description": "Item 11",
+      "description": "Krispy Kreme",
       "date": "2021-11-29",
       "status": false
     },
     {
       "id": 12,
-      "listId": 1,
-      "description": "Item 13",
-      "date": "2021-12-25",
+      "listId": 5,
+      "description": "Item 1",
+      "date": "2021-11-30",
+      "status": false
+    },
+    {
+      "id": 13,
+      "listId": 5,
+      "description": "Item 2",
+      "date": "2021-11-28",
       "status": false
     }
   ],

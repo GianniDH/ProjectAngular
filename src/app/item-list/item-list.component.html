@@ -7,15 +7,15 @@
 <table class="table" *ngIf="items && items.length > 0">
   <thead>
     <tr>
-      <th scope="col">Description</th>
-      <th scope="col">Date</th>
-      <th scope="col">Is done?</th>
-      <th scope="col">List</th>
+      <th (click)="sort('description')" scope="col">Description &nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('date')" scope="col">Date &nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('status')" scope="col">Is done? &nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('listId')" scope="col">List &nbsp;<i class="fa fa-sort"></i></th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of items">
+    <tr *ngFor="let item of items | orderBy: key: reverse">
       <td>{{ item.description }}</td>
       <td>{{ item.date }}</td>
       <td>

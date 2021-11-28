@@ -54,4 +54,11 @@ export class ListListComponent implements OnInit, OnDestroy {
       .getLists()
       .subscribe((result) => (this.lists = result));
   }
+
+  key: string = 'id';
+  reverse:boolean = false;
+  sort(key: string){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 }

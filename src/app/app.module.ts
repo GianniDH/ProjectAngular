@@ -14,6 +14,7 @@ import { ListListComponent } from "./list-list/list-list.component";
 import { ListFormComponent } from "./list-form/list-form.component";
 import { ListComponent } from "./list/list.component";
 import { CommonModule } from "@angular/common";
+import { Ng2OrderModule } from "ng2-order-pipe";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CommonModule } from "@angular/common";
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    Ng2OrderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

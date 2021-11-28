@@ -23,6 +23,7 @@
     "@angular/router": "~12.0.5",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "ng2-order-pipe": "^0.1.5",
     "ngrok": "^4.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
