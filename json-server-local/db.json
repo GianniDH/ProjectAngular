@@ -1,6 +1,11 @@
 {
   "lists": [
     {
+      "id": 1,
+      "title": "List A",
+      "category": "blue"
+    },
+    {
       "id": 2,
       "title": "List B",
       "category": "green"
@@ -14,11 +19,6 @@
       "id": 4,
       "title": "List D",
       "category": "red"
-    },
-    {
-      "id": 5,
-      "title": "List F",
-      "category": "yellow"
     }
   ],
   "items": [
@@ -83,6 +83,41 @@
       "listId": 5,
       "description": "Item 2",
       "date": "2021-11-28",
+      "status": false
+    },
+    {
+      "id": 14,
+      "listId": 1,
+      "description": "Bill payment",
+      "date": "2021-11-17",
+      "status": false
+    },
+    {
+      "id": 15,
+      "listId": 1,
+      "description": "Assignment Angular",
+      "date": "2021-11-26",
+      "status": false
+    },
+    {
+      "id": 16,
+      "listId": 1,
+      "description": "Close servers",
+      "date": "2021-11-28",
+      "status": false
+    },
+    {
+      "id": 17,
+      "listId": 1,
+      "description": "Leash for dog",
+      "date": "2021-12-25",
+      "status": false
+    },
+    {
+      "id": 18,
+      "listId": 4,
+      "description": "Jeopardy",
+      "date": "2021-11-30",
       "status": false
     }
   ],
